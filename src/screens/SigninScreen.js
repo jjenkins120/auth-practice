@@ -1,19 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import auth from '@react-native-firebase/app'
 import { StyleSheet, View } from 'react-native'
 import { Text, Button, Input } from 'react-native-elements'
 import Spacer from '../components/Spacer'
 
 const SigninScreen = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
     return (
         <View style={styles.screen}>
             <Spacer>
                 <Text style={styles.header}>Welcome to Auth Practice</Text>
             </Spacer>
             <Spacer>
-                <Input placeholder='Name'/>
+                <Input 
+                    placeholder='Email'
+                    value={email}
+                    onChangeText={setEmail}
+                    autoCapitalize='none'
+                    autoCorrect={false}
+                />
             </Spacer>
             <Spacer>
-                <Input placeholder='Password'/>
+                <Input 
+                    secureTextEntry
+                    placeholder='Password'
+                    value={password}
+                    onChangeText={setPassword}
+                    autoCapitalize='none'
+                    autoCorrect={false}
+                />
             </Spacer>
             <Spacer>
                 <Button 
@@ -27,6 +44,7 @@ const SigninScreen = () => {
         </View>
     )
 }
+
 
 SigninScreen.navigationOptions = () => {
     return {
@@ -50,7 +68,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 9,
     },
     title: {
-        color:'#8A2BE2'
+        color:'#8A2BE2', 
+        fontWeight: 'bold'
     }
 })
 

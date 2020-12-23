@@ -11,7 +11,10 @@ const navigator = createStackNavigator(
   {
     initialRouteName:'Signin',
     defaultNavigationOptions: {
-      title: 'Auth-Practice'
+      title: 'Auth-Practice',
+      cardStyle: {
+        backgroundColor: '#FFFFFF'
+      }
     }
   }
 )
